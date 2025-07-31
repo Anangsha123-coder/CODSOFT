@@ -1,0 +1,346 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  color: #222;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Navigation */
+header {
+  background: linear-gradient(120deg, #43cea2 0%, #185a9d 100%);
+  color: #fff;
+  padding-bottom: 40px;
+  box-shadow: 0 4px 24px rgba(24,90,157,0.1);
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+}
+
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: #ffe082;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin-top: 40px;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 2.8rem;
+  margin-bottom: 15px;
+  background: linear-gradient(90deg, #ffe082, #43cea2, #fed6e3);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientText 3s infinite alternate;
+}
+
+@keyframes gradientText {
+  0% { background-position: 0%;}
+  100% { background-position: 100%;}
+}
+
+.hero p {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(24,90,157,0.2);
+}
+
+.btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #ffe082, #43cea2);
+  color: #222;
+  padding: 14px 38px;
+  border-radius: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 12px rgba(67,206,162,0.2);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: linear-gradient(90deg, #fed6e3, #ffe082);
+  color: #185a9d;
+  transform: translateY(-3px) scale(1.04);
+}
+
+.btn-secondary {
+  background: linear-gradient(90deg, #43cea2, #fed6e3);
+  color: #222;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(90deg, #ffe082, #43cea2);
+  color: #185a9d;
+}
+
+/* Weather Animations */
+.weather-animations {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 30px;
+  min-height: 90px;
+}
+
+.sun {
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at 30% 30%, #ffe082 70%, #ffb300 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 40px 10px #ffe08288;
+  animation: sunMove 3s infinite alternate;
+}
+
+@keyframes sunMove {
+  0% { transform: translateY(0);}
+  100% { transform: translateY(-15px);}
+}
+
+.cloud {
+  width: 70px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50px 50px 40px 40px;
+  position: relative;
+  box-shadow: 0 0 30px 5px #fff8;
+  animation: cloudMove 4s infinite alternate;
+}
+
+.cloud::before, .cloud::after {
+  content: '';
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+}
+
+.cloud::before {
+  width: 40px;
+  height: 40px;
+  left: -25px;
+  top: 0;
+}
+
+.cloud::after {
+  width: 30px;
+  height: 30px;
+  left: 50px;
+  top: 10px;
+}
+
+@keyframes cloudMove {
+  0% { transform: translateX(0);}
+  100% { transform: translateX(20px);}
+}
+
+.rain {
+  width: 10px;
+  height: 30px;
+  position: relative;
+  margin-left: 10px;
+}
+
+.rain::before, .rain::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  height: 18px;
+  background: linear-gradient(180deg, #43cea2 0%, #185a9d 100%);
+  border-radius: 10px;
+  left: 0;
+  animation: rainDrop 1s infinite linear;
+}
+
+.rain::after {
+  left: 8px;
+  animation-delay: 0.5s;
+}
+
+@keyframes rainDrop {
+  0% { top: 0; opacity: 1;}
+  80% { opacity: 1;}
+  100% { top: 20px; opacity: 0;}
+}
+
+/* Features Section */
+.features {
+  padding: 70px 10% 50px 10%;
+  background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  text-align: center;
+}
+
+.features h2 {
+  margin-bottom: 40px;
+  font-size: 2.2rem;
+  color: #185a9d;
+  letter-spacing: 1px;
+}
+
+.feature-list {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.feature-card {
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 16px rgba(24,90,157,0.08);
+  padding: 32px 24px;
+  flex: 1 1 220px;
+  min-width: 220px;
+  max-width: 300px;
+  margin-bottom: 20px;
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(24,90,157,0.18);
+}
+
+.feature-card .icon {
+  font-size: 2.5rem;
+  margin-bottom: 18px;
+  animation: iconBounce 1.5s infinite alternate;
+}
+
+@keyframes iconBounce {
+  0% { transform: translateY(0);}
+  100% { transform: translateY(-8px);}
+}
+
+.feature-card h3 {
+  margin-bottom: 10px;
+  color: #43cea2;
+}
+
+.feature-card p {
+  color: #555;
+}
+
+/* Download Section */
+.download {
+  padding: 60px 10% 50px 10%;
+  background: linear-gradient(120deg, #43cea2 0%, #ffe082 100%);
+  text-align: center;
+}
+
+.download h2 {
+  color: #185a9d;
+  margin-bottom: 18px;
+}
+
+.download p {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+  background: linear-gradient(90deg, #185a9d 0%, #43cea2 100%);
+  color: #fff;
+  text-align: center;
+  padding: 28px 0 18px 0;
+  font-size: 1rem;
+  margin-top: 0;
+}
+
+.footer-content {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.footer-content a {
+  color: #ffe082;
+  text-decoration: none;
+  margin: 0 8px;
+  transition: color 0.2s;
+}
+
+.footer-content a:hover {
+  color: #fff;
+}
+
+.socials {
+  margin: 10px 0 8px 0;
+  font-size: 1.5rem;
+}
+
+.socials a {
+  margin: 0 8px;
+  transition: transform 0.2s;
+}
+
+.socials a:hover {
+  transform: scale(1.2) rotate(-8deg);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .feature-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+  .weather-animations {
+    gap: 15px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+  .features h2, .download h2 {
+    font-size: 1.4rem;
+  }
+  nav ul {
+    gap: 15px;
+  }
+}
